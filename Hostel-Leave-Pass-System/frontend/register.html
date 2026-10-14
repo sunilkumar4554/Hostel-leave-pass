@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Student Registration | HostelPass</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body class="form-page">
+    <header class="topbar"><a class="brand" href="/"><span class="brand-mark">H</span><span>Hostel<span
+                    class="brand-light">Pass</span><small>STUDENT REGISTRATION</small></span></a><a
+            class="back-link inline-back" href="/student-login.html">← Student login</a></header>
+    <main class="wide-form-shell">
+        <div class="form-heading">
+            <div class="section-kicker">NEW HOSTELLER</div>
+            <h1>Create your student account</h1>
+            <p class="muted">Enter your college and hostel details to get started.</p>
+        </div>
+        <div id="alert" class="alert hidden"></div>
+        <form id="register-form" class="form-card">
+            <div class="form-section-title"><span class="step-number">01</span>
+                <div><strong>Personal information</strong><small>Basic account details</small></div>
+            </div>
+            <div class="form-grid"><label>Full name<input name="name" required
+                        placeholder="Your full name"></label><label>College email<input name="email" type="email"
+                        required placeholder="you@college.edu"></label><label>Registration number<input
+                        name="registration_no" required placeholder="e.g. 24AIML001"></label><label>Phone number<input
+                        name="phone" required inputmode="tel"
+                        placeholder="Your contact number"></label><label>Branch<input name="branch" required
+                        placeholder="e.g. AI & ML"></label><label>Year<select name="year" required>
+                        <option value="">Select year</option>
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                    </select></label></div>
+            <div class="form-section-title section-spaced"><span class="step-number">02</span>
+                <div><strong>Hostel information</strong><small>Help security and the warden identify your record</small>
+                </div>
+            </div>
+            <div class="form-grid"><label>Hostel type<select name="hostel_type" required>
+                        <option value="">Select type</option>
+                        <option>Boys Hostel</option>
+                        <option>Girls Hostel</option>
+                        <option>Other</option>
+                    </select></label><label>Hostel / building name<input name="hostel_name" required
+                        placeholder="e.g. Block A"></label><label>Room number<input name="room_no" required
+                        placeholder="e.g. 204"></label><label>Create password<input name="password" type="password"
+                        minlength="8" required autocomplete="new-password" placeholder="At least 8 characters"><small
+                        class="input-help">Use at least 8 characters.</small></label></div>
+            <div class="form-actions"><a class="text-link" href="/student-login.html">Already registered? Log
+                    in</a><button class="btn btn-primary" type="submit">Create Account <span>→</span></button></div>
+        </form>
+    </main>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script>setupRegistration();</script>
+</body>
+
+</html>

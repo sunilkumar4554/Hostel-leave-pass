@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Student Login | HostelPass</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body class="auth-page"><a class="back-link" href="/">← Back to portals</a>
+    <main class="auth-shell">
+        <section class="auth-aside student-aside"><a class="brand brand-inverse" href="/"><span
+                    class="brand-mark">H</span><span>Hostel<span class="brand-light">Pass</span><small>STUDENT
+                        PORTAL</small></span></a>
+            <div>
+                <div class="eyebrow">YOUR HOSTEL, ONE TAP AWAY</div>
+                <h1>Plan your leave.<br><span>Keep it simple.</span></h1>
+                <p>Submit your application, follow its status and access your approved digital leave pass in one place.
+                </p>
+            </div>
+            <div class="aside-bottom">Student access · Application history · Digital passes</div>
+        </section>
+        <section class="auth-form-wrap">
+            <div class="auth-form">
+                <div class="mobile-brand"><span class="brand-mark">H</span> HostelPass</div>
+                <div class="section-kicker">WELCOME BACK</div>
+                <h2>Student login</h2>
+                <p class="muted">Use the account registered with your hostel details.</p>
+                <div id="alert" class="alert hidden"></div>
+                <form id="login-form"><label>Email address<input name="email" type="email" autocomplete="username"
+                            placeholder="you@college.edu" required></label><label>Password<input name="password"
+                            type="password" autocomplete="current-password" placeholder="Enter your password"
+                            required></label>
+                    <div class="form-row between"><span class="muted small">Registered hostellers only</span><a
+                            href="/forgot-password.html">Forgot password?</a></div><button
+                        class="btn btn-primary btn-full" type="submit">Login to Student Portal <span>→</span></button>
+                </form>
+                <p class="form-end">New student? <a href="/register.html">Create your account</a></p>
+                <p class="demo-note">Demo Warden/Guard credentials are shown in README.md.</p>
+            </div>
+        </section>
+    </main>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script>setupLogin('student');</script>
+</body>
+
+</html>

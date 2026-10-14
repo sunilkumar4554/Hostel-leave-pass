@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Warden Dashboard | HostelPass</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body class="app-page">
+    <aside class="sidebar"><a class="brand" href="/"><span class="brand-mark">H</span><span>Hostel<span
+                    class="brand-light">Pass</span><small>WARDEN PORTAL</small></span></a>
+        <div class="sidebar-label">MANAGEMENT</div><a class="side-link active" href="#overview">▦
+            <span>Overview</span></a><a class="side-link" href="#approvals">✓ <span>Leave approvals</span></a><a
+            class="side-link" href="#students">♙ <span>Student directory</span></a><a class="side-link"
+            href="#reports">⇩ <span>Reports & import</span></a>
+        <div class="sidebar-bottom">
+            <div class="mini-avatar" id="user-avatar">W</div>
+            <div class="user-mini"><strong id="side-name">Warden</strong><small>Warden</small></div><button
+                class="icon-button" id="logout-button" title="Log out">↪</button>
+        </div>
+    </aside>
+    <main class="app-main">
+        <header class="app-header">
+            <div>
+                <div class="section-kicker">WARDEN WORKSPACE</div>
+                <h1>Warden overview <span class="wave">✦</span></h1>
+                <p class="muted">Review requests, find student records and monitor hostel gate activity.</p>
+            </div>
+            <div class="header-actions"><span class="date-chip" id="today-label"></span><button class="btn btn-primary"
+                    id="jump-pending">Review pending <span>→</span></button></div>
+        </header>
+        <div id="alert" class="alert hidden"></div>
+        <section id="overview" class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-top"><span>Registered students</span><span class="stat-icon violet">♙</span></div>
+                <strong id="stat-students">—</strong><small>Active student accounts</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top"><span>Pending approvals</span><span class="stat-icon amber">◷</span></div><strong
+                    id="stat-pending">—</strong><small>Need your review</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top"><span>Approved leaves</span><span class="stat-icon green">✓</span></div><strong
+                    id="stat-approved">—</strong><small>Ready for gate verification</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top"><span>Currently outside</span><span class="stat-icon blue">↗</span></div><strong
+                    id="stat-outside">—</strong><small>Based on check-out logs</small>
+            </div>
+        </section>
+        <section id="approvals" class="content-card">
+            <div class="card-heading wrap-heading">
+                <div>
+                    <div class="section-kicker">ACTION REQUIRED</div>
+                    <h2>Leave applications</h2>
+                    <p class="muted">Approve or reject requests after reviewing the details.</p>
+                </div>
+                <div class="toolbar"><select id="status-filter" aria-label="Filter leave status">
+                        <option value="Pending">Pending</option>
+                        <option value="Extension Pending">Extension pending</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Outside">Outside</option>
+                        <option value="Completed">Completed</option>
+                        <option value="all">All statuses</option>
+                    </select><button class="btn btn-secondary btn-small" id="refresh-approvals">↻ Refresh</button></div>
+            </div>
+            <div id="approval-list" class="table-wrap">
+                <div class="empty-state">Loading applications…</div>
+            </div>
+        </section>
+        <section id="students" class="content-card section-gap">
+            <div class="card-heading wrap-heading">
+                <div>
+                    <div class="section-kicker">STUDENT RECORDS</div>
+                    <h2>Student directory</h2>
+                    <p class="muted">Search by name, registration number, email or room.</p>
+                </div>
+            </div>
+            <form id="student-search-form" class="search-row"><span class="search-symbol">⌕</span><input
+                    id="student-query" placeholder="Search students…"><button class="btn btn-secondary"
+                    type="submit">Search</button></form>
+            <div id="student-results" class="table-wrap">
+                <div class="empty-state">Search to view registered students.</div>
+            </div>
+            <div id="student-history" class="student-history hidden"></div>
+        </section>
+        <section id="reports" class="content-grid section-gap">
+            <div class="content-card">
+                <div class="card-heading">
+                    <div>
+                        <div class="section-kicker">EXPORT DATA</div>
+                        <h2>Monthly leave report</h2>
+                        <p class="muted">Download an Excel workbook for the selected month.</p>
+                    </div><span class="heading-icon">⇩</span>
+                </div>
+                <form id="report-form" class="report-form"><label>Report month<input type="month" id="report-month"
+                            required></label><button class="btn btn-primary" type="submit">Download Excel
+                        <span>↓</span></button></form>
+                <p class="small muted">Includes leave IDs, student details, dates, statuses and gate timestamps.</p>
+            </div>
+            <div class="content-card">
+                <div class="card-heading">
+                    <div>
+                        <div class="section-kicker">BULK SETUP</div>
+                        <h2>Import students</h2>
+                        <p class="muted">Create student accounts from a CSV spreadsheet.</p>
+                    </div><span class="heading-icon">⇧</span>
+                </div>
+                <form id="import-form"><label>Student CSV file<input type="file" id="student-csv" accept=".csv"
+                            required></label><label>Temporary password for imported accounts<input id="import-password"
+                            type="password" minlength="8" placeholder="At least 8 characters" required></label><button
+                        class="btn btn-secondary" type="submit">Import CSV</button></form>
+                <p class="small muted">Required CSV headers are documented in README.md. Share the temporary password
+                    securely with students.</p>
+            </div>
+        </section>
+        <footer class="app-footer">HostelPass <span>·</span> Warden Portal</footer>
+    </main>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/warden.js"></script>
+</body>
+
+</html>

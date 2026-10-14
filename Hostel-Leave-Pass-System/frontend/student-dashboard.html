@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Student Dashboard | HostelPass</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body class="app-page">
+    <aside class="sidebar"><a class="brand" href="/"><span class="brand-mark">H</span><span>Hostel<span
+                    class="brand-light">Pass</span><small>STUDENT PORTAL</small></span></a>
+        <div class="sidebar-label">WORKSPACE</div><a class="side-link active" href="#overview">▦
+            <span>Overview</span></a><a class="side-link" href="#apply">＋ <span>Apply for leave</span></a><a
+            class="side-link" href="#history">◷ <span>Leave history</span></a>
+        <div class="sidebar-bottom">
+            <div class="mini-avatar" id="user-avatar">S</div>
+            <div class="user-mini"><strong id="side-name">Student</strong><small id="side-role">Hosteller</small></div>
+            <button class="icon-button" id="logout-button" title="Log out">↪</button>
+        </div>
+    </aside>
+    <main class="app-main">
+        <header class="app-header">
+            <div>
+                <div class="section-kicker">STUDENT WORKSPACE</div>
+                <h1>Good day, <span id="greeting-name">Student</span> <span class="wave">✦</span></h1>
+                <p class="muted">Manage your leave requests and digital passes.</p>
+            </div>
+            <div class="header-actions"><span class="date-chip" id="today-label"></span><a href="#apply"
+                    class="btn btn-primary">＋ Apply for leave</a></div>
+        </header>
+        <div id="alert" class="alert hidden"></div>
+        <section id="overview" class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-top"><span>Total leaves</span><span class="stat-icon violet">↗</span></div><strong
+                    id="stat-total">—</strong><small>This year</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top"><span>Pending approval</span><span class="stat-icon amber">◷</span></div><strong
+                    id="stat-pending">—</strong><small>Awaiting warden review</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top"><span>Approved / completed</span><span class="stat-icon green">✓</span></div>
+                <strong id="stat-approved">—</strong><small>Approved leave requests</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top"><span>Currently outside</span><span class="stat-icon blue">↗</span></div><strong
+                    id="stat-outside">—</strong><small>Based on gate records</small>
+            </div>
+        </section>
+        <section id="apply" class="content-grid">
+            <div class="content-card form-content">
+                <div class="card-heading">
+                    <div>
+                        <div class="section-kicker">NEW REQUEST</div>
+                        <h2>Apply for leave</h2>
+                        <p class="muted">Fill in your plans. The request will be sent to the warden.</p>
+                    </div><span class="heading-icon">✎</span>
+                </div>
+                <form id="leave-form">
+                    <div class="form-grid"><label>Reason for leave<select name="reason" required>
+                                <option value="">Choose a reason</option>
+                                <option>Home</option>
+                                <option>Medical</option>
+                                <option>Emergency</option>
+                                <option>Personal</option>
+                                <option>Family Function</option>
+                                <option>Other</option>
+                            </select></label><label>Expected return time<input name="return_time" type="time"
+                                required></label><label>Leaving date<input name="start_date" type="date"
+                                required></label><label>Return date<input name="end_date" type="date"
+                                required></label><label class="full-span">Additional details<textarea name="notes"
+                                rows="3"
+                                placeholder="Add details to help the warden review your request..."></textarea></label><label
+                            class="full-span upload-box"><span class="upload-icon">↑</span><span><strong>Upload
+                                    supporting document <small>(optional)</small></strong><small>Medical proof or other
+                                    document · PDF/JPG/PNG · Max 5 MB</small></span><input type="file" name="proof"
+                                accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg"></label></div>
+                    <div class="form-actions"><span class="muted small">Your application starts as
+                            Pending.</span><button class="btn btn-primary" type="submit">Submit application
+                            <span>→</span></button></div>
+                </form>
+            </div>
+            <aside class="content-card guidance-card">
+                <div class="guidance-art">↗</div>
+                <div class="section-kicker">QUICK GUIDE</div>
+                <h3>Here's how it works</h3>
+                <div class="timeline">
+                    <div class="timeline-item"><span class="timeline-dot purple-dot">1</span>
+                        <div><strong>Submit your request</strong><small>Provide dates and a clear reason.</small></div>
+                    </div>
+                    <div class="timeline-item"><span class="timeline-dot amber-dot">2</span>
+                        <div><strong>Warden reviews it</strong><small>Track changes in your leave history.</small></div>
+                    </div>
+                    <div class="timeline-item"><span class="timeline-dot green-dot">3</span>
+                        <div><strong>Get your digital pass</strong><small>Show the QR code to the gate guard.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="note-box"><strong>Keep in mind</strong>
+                    <p>Only an approved pass can be used to check out. Carry your college ID as well.</p>
+                </div>
+            </aside>
+        </section>
+        <section id="history" class="content-card history-card">
+            <div class="card-heading">
+                <div>
+                    <div class="section-kicker">YOUR RECORDS</div>
+                    <h2>Leave history</h2>
+                    <p class="muted">Review application statuses and open approved passes.</p>
+                </div><button class="btn btn-secondary btn-small" id="refresh-leaves">↻ Refresh</button>
+            </div>
+            <div id="leave-list" class="leave-list">
+                <div class="empty-state">Loading your leave records…</div>
+            </div>
+        </section>
+        <footer class="app-footer">HostelPass <span>·</span> Student Portal</footer>
+    </main>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/student.js"></script>
+</body>
+
+</html>

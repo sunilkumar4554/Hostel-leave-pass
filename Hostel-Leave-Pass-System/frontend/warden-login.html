@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Warden Login | HostelPass</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body class="auth-page"><a class="back-link" href="/">← Back to portals</a>
+    <main class="auth-shell">
+        <section class="auth-aside warden-aside"><a class="brand brand-inverse" href="/"><span
+                    class="brand-mark">H</span><span>Hostel<span class="brand-light">Pass</span><small>WARDEN
+                        PORTAL</small></span></a>
+            <div>
+                <div class="eyebrow">CAMPUS OPERATIONS</div>
+                <h1>Review with clarity.<br><span>Manage with confidence.</span></h1>
+                <p>Review pending leave applications, view student records and export reports from one workspace.</p>
+            </div>
+            <div class="aside-bottom">Approval queue · Student records · Monthly reports</div>
+        </section>
+        <section class="auth-form-wrap">
+            <div class="auth-form">
+                <div class="mobile-brand"><span class="brand-mark">H</span> HostelPass</div>
+                <div class="section-kicker">STAFF ACCESS</div>
+                <h2>Warden login</h2>
+                <p class="muted">Sign in with your authorized warden account.</p>
+                <div id="alert" class="alert hidden"></div>
+                <form id="login-form"><label>Warden email<input name="email" type="email" autocomplete="username"
+                            placeholder="warden@college.edu" required></label><label>Password<input name="password"
+                            type="password" autocomplete="current-password" placeholder="Enter your password"
+                            required></label>
+                    <div class="form-row between"><span class="muted small">Warden access only</span><a
+                            href="/forgot-password.html">Forgot password?</a></div><button
+                        class="btn btn-primary btn-full" type="submit">Open Warden Dashboard <span>→</span></button>
+                </form>
+                <p class="form-end">Need a different portal? <a href="/">Return to portal selection</a></p>
+            </div>
+        </section>
+    </main>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script>setupLogin('warden');</script>
+</body>
+
+</html>
